@@ -122,6 +122,43 @@ let appDataList = [
 		offline: true,
 		installable: true,
 	},
+	{
+		slug: 'tetra',
+		title: 'Tetra (Tetris)',
+		category: 'Strategy',
+		iconSubPath: 'android-icon-192x192.png',
+		sourceUrl: 'https://github.com/tmaiadev/tetra',
+		developer: 'Thalles Maia',
+		developerUrl: 'https://thallesmaia.com/',
+		playUrl: 'https://tmaiadev-tetra.netlify.app/',
+		offline: true,
+		installable: true,
+	},
+	{
+		slug: 'tictactoe',
+		title: 'TicTacToe',
+		category: 'Strategy',
+		iconSubPath: 'apple-icon-180x180.png',
+		sourceUrl: 'https://github.com/tmaiadev/tictactoe',
+		developer: 'Thalles Maia',
+		developerUrl: 'https://thallesmaia.com/',
+		playUrl: 'https://tmaiadev-tictactoe.netlify.app/',
+		offline: true,
+		installable: true,
+	},
+	{
+		slug: 'snake-classic',
+		title: 'Snake (Classic)',
+		category: 'Strategy',
+		iconSubPath: 'android-chrome-192x192.png',
+		sourceUrl: 'https://github.com/tmaiadev/snake',
+		developer: 'Thalles Maia',
+		developerUrl: 'https://thallesmaia.com/',
+		playUrl: 'https://tmaiadev-snake.netlify.app/',
+		offline: true,
+		installable: true,
+	},
+
 ]
 appDataList.forEach(function(app){
 	if (app.playUrl) {
