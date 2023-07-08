@@ -1,0 +1,3 @@
+[submodule "app/2048"]
+	path = app/2048
+	url = git@github.com:PWAGames/2048.git
