@@ -172,6 +172,18 @@ let appDataList = [
 		offline: true,
 		installable: true,
 	},
+	{
+		slug: 'pacman',
+		title: 'Pacman',
+		category: 'Strategy',
+		iconSubPath: 'launcher-icon-4x.png',
+		sourceUrl: 'https://github.com/vitaliy-bobrov/pacman-pwa',
+		developer: 'Vitalii Bobrov',
+		developerUrl: 'https://github.com/vitaliy-bobrov',
+		playUrl: 'https://bobrov.dev/pacman-pwa/',
+		offline: true,
+		installable: true,
+	},
 
 ]
 appDataList.forEach(function(app){
