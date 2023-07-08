@@ -241,13 +241,14 @@ function main() {
 		let appListItemHtmlStr = templateReplace(appListItemTemplate, app)
 		let appListItemEl = createEl(appListItemHtmlStr, app)
 		let appTitleEl = appListItemEl.querySelector('.app-category')
-		if (!app.offline) {
-			const onlineOnlyEl = document.createElement('span')
-			onlineOnlyEl.classList.add('onlineonly')
-			onlineOnlyEl.textContent = '🌐'
-			appTitleEl.appendChild(onlineOnlyEl)
-		}
-		if (!app.installable) {
+		if (app.installable) {
+			if (!app.offline) {
+				const onlineOnlyEl = document.createElement('span')
+				onlineOnlyEl.classList.add('onlineonly')
+				onlineOnlyEl.textContent = '🌐'
+				appTitleEl.appendChild(onlineOnlyEl)
+			}
+		} else {
 			const notInstallableEl = document.createElement('img')
 			notInstallableEl.setAttribute('src', 'icons/uninstallable.svg')
 			notInstallableEl.classList.add('notinstallable')
