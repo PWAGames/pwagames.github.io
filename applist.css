@@ -1,6 +1,9 @@
 * {
 	box-sizing: border-box;
 }
+body {
+	font-family: sans-serif;
+}
 .app-list {
 	list-style: none;
 	padding-left: 0;
