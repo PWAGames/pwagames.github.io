@@ -99,6 +99,20 @@ let appDataList = [
 		installable: true,
 	},
 	{
+		slug: 'waterwars',
+		title: 'Waterwars (Battleship)',
+		category: 'Strategy',
+		iconSubPath: 'touch-icon-iphone-retina.png',
+		sourceUrl: 'https://github.com/vcjhwebdev/waterwars/',
+		developer: 'vcjhwebdev',
+		developerUrl: 'https://github.com/vcjhwebdev',
+		playUrl: 'https://vcjhwebdev.github.io/waterwars/',
+		offline: true,
+		installable: true,
+	},
+	// https://github.com/vcjhwebdev/slapjack
+	// https://github.com/vcjhwebdev/blackjack
+	{
 		slug: 'the-cube',
 		title: 'The Cube',
 		category: 'Puzzle',
