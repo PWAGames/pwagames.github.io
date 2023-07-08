@@ -110,6 +110,18 @@ let appDataList = [
 		offline: true,
 		installable: true,
 	},
+	{
+		slug: 'hangapp',
+		title: 'Hangapp',
+		category: 'Puzzle',
+		iconSubPath: 'icons/logo192.png',
+		sourceUrl: 'https://github.com/kylesureline/hangapp',
+		developer: 'Kyle Scheuerlein',
+		developerUrl: 'https://kylesureline.com/',
+		playUrl: 'https://kylesureline.com/hangapp/',
+		offline: true,
+		installable: true,
+	},
 ]
 appDataList.forEach(function(app){
 	if (app.playUrl) {
