@@ -38,3 +38,9 @@
 .app-list-item .app-category {
 	color: #777777;
 }
+.app-list-item .app-category span,
+.app-list-item .app-category img {
+	height: 1em;
+	margin-left: 0.2em;
+	vertical-align: middle;
+}

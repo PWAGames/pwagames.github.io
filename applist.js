@@ -129,18 +129,22 @@ function main() {
 		let appListItemEl = createEl(appListItemHtmlStr, app)
 		let appTitleEl = appListItemEl.querySelector('.app-category')
 		if (!app.offline) {
-			let onlineOnlyEl = document.createElement('span')
+			const onlineOnlyEl = document.createElement('span')
+			onlineOnlyEl.classList.add('onlineonly')
 			onlineOnlyEl.textContent = '🌐'
 			appTitleEl.appendChild(onlineOnlyEl)
 		}
 		if (!app.installable) {
-			let notInstallableEl = document.createElement('span')
+			const notInstallableEl = document.createElement('img')
+			notInstallableEl.setAttribute('src', 'icons/uninstallable.svg')
+			notInstallableEl.classList.add('notinstallable')
 			notInstallableEl.textContent = '💾'
 			appTitleEl.appendChild(notInstallableEl)
 		}
 		if (app.playUrl) {
-			let externalLinkEl = document.createElement('span')
-			externalLinkEl.textContent = '🔗'
+			const externalLinkEl = document.createElement('img')
+			externalLinkEl.setAttribute('src', 'icons/external-link.svg')
+			externalLinkEl.classList.add('externallink')
 			appTitleEl.appendChild(externalLinkEl)
 		}
 		appListEl.appendChild(appListItemEl)
