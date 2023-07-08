@@ -59,8 +59,8 @@ let appDataList = [
 		developer: 'Jullian',
 		developerUrl: 'https://jull.dev',
 		playUrl: 'https://sudoku.jull.dev/',
-		offline: false,
-		installable: false,
+		offline: true,
+		installable: true,
 	},
 	{
 		slug: 'mastermind',
@@ -71,8 +71,8 @@ let appDataList = [
 		developer: 'Jullian',
 		developerUrl: 'https://jull.dev',
 		playUrl: 'https://mastermind.jull.dev/',
-		offline: false,
-		installable: false,
+		offline: true,
+		installable: true,
 	},
 	{
 		slug: 'snake-cute',
