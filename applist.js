@@ -43,70 +43,80 @@ let appDataList = [
 		title: '2048',
 		category: 'Puzzle',
 		iconSubPath: 'meta/apple-touch-icon.png',
+		sourceUrl: 'https://github.com/gabrielecirulli/2048',
+		developer: 'Gabriele Cirulli',
+		developerUrl: 'https://github.com/GabrieleCirulli/',
+		playUrl: null,
+		offline: true,
+		installable: true,
 	},
 	{
-		slug: 'sudoku',
-		title: 'Sudoku',
+		slug: 'sudoku-pretty',
+		title: 'Sudoku (Pretty)',
 		category: 'Puzzle',
-		iconSubPath: 'img/640x0w.webp',
+		iconSubPath: 'img/icons/apple-touch-icon-152x152.png',
+		sourceUrl: null,
+		developer: 'Jullian',
+		developerUrl: 'https://jull.dev',
+		playUrl: 'https://sudoku.jull.dev/',
+		offline: false,
+		installable: false,
 	},
 	{
-		slug: 'thecube',
+		slug: 'mastermind',
+		title: 'Mastermind',
+		category: 'Puzzle',
+		iconSubPath: 'img/icons/apple-touch-icon-152x152.png',
+		sourceUrl: null,
+		developer: 'Jullian',
+		developerUrl: 'https://jull.dev',
+		playUrl: 'https://mastermind.jull.dev/',
+		offline: false,
+		installable: false,
+	},
+	{
+		slug: 'snake',
+		title: 'Snake',
+		category: 'Strategy',
+		iconSubPath: 'images/icons/icon-192.png',
+		sourceUrl: 'https://github.com/snake-pwa/snake',
+		developer: 'keeshii',
+		developerUrl: 'https://github.com/keeshii',
+		playUrl: 'https://snake-pwa.github.io/',
+		offline: true,
+		installable: true,
+	},
+	{
+		slug: 'sudoku-random',
+		title: 'Sudoku (Random)',
+		category: 'Puzzle',
+		iconSubPath: 'touch-icons/touch-icon.png',
+		sourceUrl: 'https://github.com/vcjhwebdev/sudoku/',
+		developer: 'vcjhwebdev',
+		developerUrl: 'https://github.com/vcjhwebdev/',
+		playUrl: 'https://vcjhwebdev.github.io/sudoku/',
+		offline: true,
+		installable: true,
+	},
+	{
+		slug: 'the-cube',
 		title: 'The Cube',
 		category: 'Puzzle',
-		iconSubPath: 'img/1541289835730-apple-touch-icon.png',
-	},
-	{
-		slug: 'thecube',
-		title: 'The Cube',
-		category: 'Puzzle',
-		iconSubPath: 'img/1541289835730-apple-touch-icon.png',
-	},
-	{
-		slug: 'thecube',
-		title: 'The Cube',
-		category: 'Puzzle',
-		iconSubPath: 'img/1541289835730-apple-touch-icon.png',
-	},
-	{
-		slug: 'thecube',
-		title: 'The Cube',
-		category: 'Puzzle',
-		iconSubPath: 'img/1541289835730-apple-touch-icon.png',
-	},
-	{
-		slug: 'thecube',
-		title: 'The Cube',
-		category: 'Puzzle',
-		iconSubPath: 'img/1541289835730-apple-touch-icon.png',
-	},
-	{
-		slug: 'thecube',
-		title: 'The Cube',
-		category: 'Puzzle',
-		iconSubPath: 'img/1541289835730-apple-touch-icon.png',
-	},
-	{
-		slug: 'thecube',
-		title: 'The Cube',
-		category: 'Puzzle',
-		iconSubPath: 'img/1541289835730-apple-touch-icon.png',
-	},
-	{
-		slug: 'thecube',
-		title: 'The Cube',
-		category: 'Puzzle',
-		iconSubPath: 'img/1541289835730-apple-touch-icon.png',
-	},
-	{
-		slug: 'thecube',
-		title: 'The Cube',
-		category: 'Puzzle',
-		iconSubPath: 'img/1541289835730-apple-touch-icon.png',
+		iconSubPath: 'assets/icons/apple-touch-icon.png',
+		sourceUrl: 'https://github.com/bsehovac/the-cube/',
+		developer: 'Boris Šehovac',
+		developerUrl: 'https://github.com/bsehovac/',
+		playUrl: 'https://bsehovac.github.io/the-cube/',
+		offline: true,
+		installable: true,
 	},
 ]
 appDataList.forEach(function(app){
-	app.url = '/app/' + app.slug + '/'
+	if (app.playUrl) {
+		app.url = app.playUrl
+	} else {
+		app.url = '/app/' + app.slug + '/'
+	}
 	app.iconPath = '/app/' + app.slug + '/' + app.iconSubPath
 })
 
@@ -115,11 +125,24 @@ appDataList.forEach(function(app){
 function main() {
 	let appListEl = document.querySelector('ul.app-list')
 	appDataList.forEach(function(app){
-		console.log('app', app)
 		let appListItemHtmlStr = templateReplace(appListItemTemplate, app)
-		console.log('appListItemHtmlStr', appListItemHtmlStr)
 		let appListItemEl = createEl(appListItemHtmlStr, app)
-		console.log('appListItemEl', appListItemEl)
+		let appTitleEl = appListItemEl.querySelector('.app-category')
+		if (!app.offline) {
+			let onlineOnlyEl = document.createElement('span')
+			onlineOnlyEl.textContent = '🌐'
+			appTitleEl.appendChild(onlineOnlyEl)
+		}
+		if (!app.installable) {
+			let notInstallableEl = document.createElement('span')
+			notInstallableEl.textContent = '💾'
+			appTitleEl.appendChild(notInstallableEl)
+		}
+		if (app.playUrl) {
+			let externalLinkEl = document.createElement('span')
+			externalLinkEl.textContent = '🔗'
+			appTitleEl.appendChild(externalLinkEl)
+		}
 		appListEl.appendChild(appListItemEl)
 	})
 }
