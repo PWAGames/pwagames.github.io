@@ -75,6 +75,18 @@ let appDataList = [
 		installable: true,
 	},
 	{
+		slug: 'mahjong',
+		title: 'Mahjong',
+		category: 'Strategy',
+		iconSubPath: 'android-chrome-192x192.png',
+		sourceUrl: null,
+		developer: 'Jullian',
+		developerUrl: 'https://jull.dev',
+		playUrl: 'https://mahjong.jull.dev/',
+		offline: true,
+		installable: true,
+	},
+	{
 		slug: 'snake-cute',
 		title: 'Snake (Cute)',
 		category: 'Strategy',
@@ -184,6 +196,32 @@ let appDataList = [
 		offline: true,
 		installable: true,
 	},
+	{
+		slug: 'memory',
+		title: 'Memory',
+		category: 'Strategy',
+		iconSubPath: null,
+		sourceUrl: null,
+		developer: null,
+		developerUrl: null,
+		playUrl: 'https://pwa-memory-game.surge.sh/',
+		offline: true,
+		installable: true,
+	},
+	{
+		slug: 'tower-game',
+		title: 'Tower Game',
+		category: 'Casual',
+		iconSubPath: null,
+		sourceUrl: null,
+		developer: null,
+		developerUrl: null,
+		playUrl: 'https://www.towergame.app/',
+		offline: true,
+		installable: true,
+	},
+
+	// https://offline-dino-game.firebaseapp.com/ (Broken, needs HIDDEN_CLASS='hidden')
 
 ]
 appDataList.forEach(function(app){
