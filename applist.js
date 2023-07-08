@@ -233,6 +233,12 @@ appDataList.forEach(function(app){
 	app.iconPath = '/app/' + app.slug + '/' + app.iconSubPath
 })
 
+// Randomize
+appDataList.forEach(function(app){
+	app.sortWeight = Math.random()
+})
+appDataList.sort((a,b) => a.sortWeight - b.sortWeight)
+
 
 //--- Main
 function main() {
