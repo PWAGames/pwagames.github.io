@@ -356,9 +356,9 @@ for (const appCategory of gameAppCategories) {
 	}
 	appCategoryListEl.appendChild(filterButtonEl)
 }
-appFilterCSS += '.app-list.filter-onlineonly .app-list-item[onlineonly] { display: none; }\n'
-appFilterCSS += '.app-list.filter-notinstallable .app-list-item[notinstallable] { display: none; }\n'
-appFilterCSS += '.app-list.filter-externallink .app-list-item[externallink] { display: none; }\n'
+appFilterCSS += '.app-list[filter-onlineonly] .app-list-item[onlineonly] { display: none; }\n'
+appFilterCSS += '.app-list[filter-notinstallable] .app-list-item[notinstallable] { display: none; }\n'
+appFilterCSS += '.app-list[filter-externallink] .app-list-item[externallink] { display: none; }\n'
 
 appFilterStyle.innerHTML += appFilterCSS
 document.head.appendChild(appFilterStyle)
@@ -367,7 +367,7 @@ document.head.appendChild(appFilterStyle)
 function bindFilterAttribute(appAttribute) {
 	const filterAttrName = 'filter-' + appAttribute
 	const filterButtonEl = document.querySelector('.app-list-filter-button.' + filterAttrName)
-	const onClick = onFilterButtonClick.bind(null, filterAttrName, true)
+	const onClick = onFilterButtonClick.bind(null, filterAttrName, '')
 	filterButtonEl.addEventListener('click', onClick)
 }
 bindFilterAttribute('notinstallable')
