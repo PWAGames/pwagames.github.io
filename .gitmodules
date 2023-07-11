@@ -4,3 +4,6 @@
 [submodule "app/norman-the-necromancer"]
 	path = app/norman-the-necromancer
 	url = git@github.com:PWAGames/norman-the-necromancer.git
+[submodule "app/waterwars"]
+	path = app/waterwars
+	url = git@github.com:PWAGames/waterwars.git
