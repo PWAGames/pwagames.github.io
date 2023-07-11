@@ -55,6 +55,13 @@ const gameAppCategories = [
 	'Trivia',
 	'Word',
 ]
+function getAppCategorySlug(appCategory) {
+	return appCategory.toLowerCase().replace(/\s/g, '-')
+}
+function getFilterAppCategoryClass(appCategory) {
+	return 'filter-category-' + getAppCategorySlug(appCategory)
+}
+
 let appDataList = [
 	{
 		slug: '2048',
@@ -294,6 +301,38 @@ appDataList.forEach(function(app){
 })
 appDataList.sort((a,b) => a.sortWeight - b.sortWeight)
 
+const appFilterStyle = document.createElement('style')
+let appFilterCSS = ''
+for (const appCategory of gameAppCategories) {
+	const appCategorySlug = getAppCategorySlug(appCategory)
+	const filterCategoryClass = getFilterAppCategoryClass(appCategory)
+	appFilterCSS += '.app-list.' + filterCategoryClass + ' .app-list-item[category="' + appCategorySlug + '"] { display: none; }\n'
+}
+appFilterCSS += '.app-list.filter-onlineonly .app-list-item[onlineonly] { display: none; }\n'
+appFilterCSS += '.app-list.filter-notinstallable .app-list-item[notinstallable] { display: none; }\n'
+appFilterCSS += '.app-list.filter-externallink .app-list-item[externallink] { display: none; }\n'
+
+appFilterStyle.innerHTML += appFilterCSS
+document.head.appendChild(appFilterStyle)
+
+// Attribute: onlineonly notinstallable externallink
+function onFilterAttributeClick(appAttribute, e){
+	const appListClassList = document.querySelector('.app-list').classList
+	appListClassList.toggle('filter-' + appAttribute)
+	if (appListClassList.contains('filter-' + appAttribute)) {
+		e.target.setAttribute('checked', true)
+	} else {
+		e.target.removeAttribute('checked')
+	}
+}
+function bindFilterAttribute(appAttribute) {
+	const onClick = onFilterAttributeClick.bind(null, appAttribute)
+	document.querySelector('.app-list-filter-button.filter-' + appAttribute).addEventListener('click', onClick)
+}
+bindFilterAttribute('notinstallable')
+bindFilterAttribute('onlineonly')
+bindFilterAttribute('externallink')
+
 
 //--- Main
 function main() {
@@ -301,26 +340,30 @@ function main() {
 	appDataList.forEach(function(app){
 		let appListItemHtmlStr = templateReplace(appListItemTemplate, app)
 		let appListItemEl = createEl(appListItemHtmlStr, app)
+		appListItemEl.setAttribute('category', getAppCategorySlug(app.category))
 		let appTitleEl = appListItemEl.querySelector('.app-category')
 		if (app.installable) {
 			if (!app.offline) {
 				const onlineOnlyEl = document.createElement('span')
-				onlineOnlyEl.classList.add('onlineonly')
+				onlineOnlyEl.classList.add('icon', 'onlineonly')
 				onlineOnlyEl.textContent = '🌐'
 				appTitleEl.appendChild(onlineOnlyEl)
+				appListItemEl.setAttribute('onlineonly', true)
 			}
 		} else {
 			const notInstallableEl = document.createElement('img')
 			notInstallableEl.setAttribute('src', 'icons/uninstallable.svg')
-			notInstallableEl.classList.add('notinstallable')
+			notInstallableEl.classList.add('icon', 'notinstallable')
 			notInstallableEl.textContent = '💾'
 			appTitleEl.appendChild(notInstallableEl)
+			appListItemEl.setAttribute('notinstallable', true)
 		}
 		if (app.playUrl) {
 			const externalLinkEl = document.createElement('img')
 			externalLinkEl.setAttribute('src', 'icons/external-link.svg')
-			externalLinkEl.classList.add('externallink')
+			externalLinkEl.classList.add('icon', 'externallink')
 			appTitleEl.appendChild(externalLinkEl)
+			appListItemEl.setAttribute('externallink', true)
 		}
 		appListEl.appendChild(appListItemEl)
 	})

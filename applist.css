@@ -4,6 +4,26 @@
 body {
 	font-family: sans-serif;
 }
+
+button.app-list-filter-button {
+	box-sizing: border-box;
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 8px;
+	padding: 8px;
+	border: 2px rgba(0,0,192,0.0) solid;
+	transition: background-color 400ms, border-color 400ms;
+}
+button.app-list-filter-button:hover {
+	background-color: rgba(0,0,0,0.05);
+}
+button.app-list-filter-button[checked] {
+	background-color: rgba(0,0,192,0.1);
+	border-color: rgba(0,0,192,0.5);
+}
+button.app-list-filter-button[checked]:hover {
+	background-color: rgba(0,0,192,0.05);
+}
+
 .app-list {
 	list-style: none;
 	padding-left: 0;
@@ -42,8 +62,8 @@ body {
 .app-list-item .app-category {
 	color: #777777;
 }
-.app-list-item .app-category span,
-.app-list-item .app-category img {
+.app-list-item .app-category .icon,
+.app-list-filter-button .icon {
 	height: 1em;
 	margin-left: 0.2em;
 	vertical-align: middle;
