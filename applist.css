@@ -79,7 +79,7 @@ button.app-list-filter-button[checked]:hover {
 	vertical-align: middle;
 }
 .app-list-filter-button[disabled] .icon {
-	opacity: 0.7;
+	opacity: 0.5;
 }
 .app-list-item .app-title {
 	white-space: nowrap;
