@@ -129,6 +129,18 @@ let appDataList = [
 		offline: true,
 	},
 	{
+		slug: 'sudoku-nytimes',
+		title: 'Sudoku (NY Times)',
+		category: 'Puzzle',
+		iconSubPath: 'sudoku-card-icon-256.png',
+		sourceUrl: 'https://github.com/vcjhwebdev/sudoku/',
+		developer: 'New York Times Games',
+		developerUrl: 'https://www.nytimes.com/puzzles/',
+		playUrl: 'https://www.nytimes.com/puzzles/sudoku',
+		installable: true,
+		offline: false,
+	},
+	{
 		slug: 'waterwars',
 		title: 'Waterwars (Battleship)',
 		category: 'Strategy',
