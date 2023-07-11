@@ -37,6 +37,24 @@ const appListItemTemplate = `
 </li>`
 
 //--- Data
+const gameAppCategories = [
+	'Action',
+	'Adventure',
+	'Board',
+	'Card',
+	'Casino',
+	'Casual',
+	'Family',
+	'Music',
+	'Puzzle',
+	'Racing',
+	'Role-Playing',
+	'Simulation',
+	'Sports',
+	'Strategy',
+	'Trivia',
+	'Word',
+]
 let appDataList = [
 	{
 		slug: '2048',
