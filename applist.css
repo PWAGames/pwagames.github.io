@@ -116,6 +116,6 @@ button.app-list-filter-button[checked]:hover {
 
 @media(max-width: 540px) {
 	.app-exclude-filter-section strong {
-		display: none;
+/*		display: none;*/
 	}
 }
