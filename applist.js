@@ -394,7 +394,7 @@ function main() {
 				onlineOnlyEl.classList.add('icon', 'onlineonly')
 				onlineOnlyEl.textContent = '🌐'
 				appTitleEl.appendChild(onlineOnlyEl)
-				appListItemEl.setAttribute('onlineonly', true)
+				appListItemEl.setAttribute('onlineonly', '')
 			}
 		} else {
 			const notInstallableEl = document.createElement('img')
@@ -402,14 +402,14 @@ function main() {
 			notInstallableEl.classList.add('icon', 'notinstallable')
 			notInstallableEl.textContent = '💾'
 			appTitleEl.appendChild(notInstallableEl)
-			appListItemEl.setAttribute('notinstallable', true)
+			appListItemEl.setAttribute('notinstallable', '')
 		}
 		if (app.playUrl) {
 			const externalLinkEl = document.createElement('img')
 			externalLinkEl.setAttribute('src', 'icons/external-link.svg')
 			externalLinkEl.classList.add('icon', 'externallink')
 			appTitleEl.appendChild(externalLinkEl)
-			appListItemEl.setAttribute('externallink', true)
+			appListItemEl.setAttribute('externallink', '')
 		}
 		appListEl.appendChild(appListItemEl)
 	})
