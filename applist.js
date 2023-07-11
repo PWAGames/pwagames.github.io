@@ -47,8 +47,8 @@ let appDataList = [
 		developer: 'Gabriele Cirulli',
 		developerUrl: 'https://github.com/GabrieleCirulli/',
 		playUrl: null,
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'sudoku-pretty',
@@ -59,8 +59,8 @@ let appDataList = [
 		developer: 'Jullian',
 		developerUrl: 'https://jull.dev',
 		playUrl: 'https://sudoku.jull.dev/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'mastermind',
@@ -71,8 +71,8 @@ let appDataList = [
 		developer: 'Jullian',
 		developerUrl: 'https://jull.dev',
 		playUrl: 'https://mastermind.jull.dev/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'mahjong',
@@ -83,8 +83,8 @@ let appDataList = [
 		developer: 'Jullian',
 		developerUrl: 'https://jull.dev',
 		playUrl: 'https://mahjong.jull.dev/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'snake-cute',
@@ -95,8 +95,8 @@ let appDataList = [
 		developer: 'keeshii',
 		developerUrl: 'https://github.com/keeshii',
 		playUrl: 'https://snake-pwa.github.io/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'sudoku-random',
@@ -107,8 +107,8 @@ let appDataList = [
 		developer: 'vcjhwebdev',
 		developerUrl: 'https://github.com/vcjhwebdev/',
 		playUrl: 'https://vcjhwebdev.github.io/sudoku/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'waterwars',
@@ -119,8 +119,8 @@ let appDataList = [
 		developer: 'vcjhwebdev',
 		developerUrl: 'https://github.com/vcjhwebdev',
 		playUrl: 'https://vcjhwebdev.github.io/waterwars/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	// https://github.com/vcjhwebdev/slapjack
 	// https://github.com/vcjhwebdev/blackjack
@@ -133,8 +133,8 @@ let appDataList = [
 		developer: 'Boris Šehovac',
 		developerUrl: 'https://github.com/bsehovac/',
 		playUrl: 'https://bsehovac.github.io/the-cube/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'hangapp',
@@ -145,8 +145,8 @@ let appDataList = [
 		developer: 'Kyle Scheuerlein',
 		developerUrl: 'https://kylesureline.com/',
 		playUrl: 'https://kylesureline.com/hangapp/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'tetra',
@@ -157,8 +157,8 @@ let appDataList = [
 		developer: 'Thalles Maia',
 		developerUrl: 'https://thallesmaia.com/',
 		playUrl: 'https://tmaiadev-tetra.netlify.app/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'tictactoe',
@@ -169,8 +169,8 @@ let appDataList = [
 		developer: 'Thalles Maia',
 		developerUrl: 'https://thallesmaia.com/',
 		playUrl: 'https://tmaiadev-tictactoe.netlify.app/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'snake-classic',
@@ -181,8 +181,8 @@ let appDataList = [
 		developer: 'Thalles Maia',
 		developerUrl: 'https://thallesmaia.com/',
 		playUrl: 'https://tmaiadev-snake.netlify.app/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'pacman',
@@ -193,8 +193,8 @@ let appDataList = [
 		developer: 'Vitalii Bobrov',
 		developerUrl: 'https://github.com/vitaliy-bobrov',
 		playUrl: 'https://bobrov.dev/pacman-pwa/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'memory',
@@ -217,8 +217,8 @@ let appDataList = [
 		developer: 'iamkun',
 		developerUrl: 'https://github.com/iamkun',
 		playUrl: 'https://www.towergame.app/',
-		offline: true,
 		installable: true,
+		offline: true,
 	},
 	{
 		slug: 'the-neatness',
@@ -229,8 +229,8 @@ let appDataList = [
 		developer: 'Mark Vasilkov',
 		developerUrl: 'https://github.com/mvasilkov',
 		playUrl: 'https://js13kgames.com/games/the-neatness/index.html',
-		offline: false,
 		installable: true,
+		offline: false,
 	},
 
 
