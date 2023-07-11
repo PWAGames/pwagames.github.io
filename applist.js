@@ -35,6 +35,10 @@ const appListItemTemplate = `
 		</div>
 	</a>
 </li>`
+const appCategoryFilterButtonTemplate = `
+<button class="app-list-filter-button filter-{{slug}}">
+	<img class="icon notinstallable" src="{{iconUrl}}"> {{title}}
+</button>`
 
 //--- Data
 const gameAppCategories = [
@@ -301,12 +305,36 @@ appDataList.forEach(function(app){
 })
 appDataList.sort((a,b) => a.sortWeight - b.sortWeight)
 
+function filterButtonToggle(className, filterButton) {
+	const appListEl = document.querySelector('.app-list')
+	appListEl.classList.toggle(className)
+	if (appListEl.classList.contains(className)) {
+		filterButton.setAttribute('checked', true)
+	} else {
+		filterButton.removeAttribute('checked')
+	}
+}
+function onFilterButtonClick(className, e) {
+	const filterButton = e.target
+	filterButtonToggle(className, filterButton)
+}
+const appCategoryListEl = document.querySelector('.app-category-list')
 const appFilterStyle = document.createElement('style')
 let appFilterCSS = ''
 for (const appCategory of gameAppCategories) {
 	const appCategorySlug = getAppCategorySlug(appCategory)
 	const filterCategoryClass = getFilterAppCategoryClass(appCategory)
-	appFilterCSS += '.app-list.' + filterCategoryClass + ' .app-list-item[category="' + appCategorySlug + '"] { display: none; }\n'
+	appFilterCSS += '.app-list.' + filterCategoryClass + ' .app-list-item:not([category="' + appCategorySlug + '"]) { display: none; }\n'
+
+	const filterButtonHtmlStr = templateReplace(appCategoryFilterButtonTemplate, {
+		title: appCategory,
+		slug: appCategorySlug,
+		iconUrl: 'icons/uninstallable.svg',
+	})
+	const filterButtonEl = createEl(filterButtonHtmlStr)
+	const onClick = onFilterButtonClick.bind(null, filterCategoryClass)
+	filterButtonEl.addEventListener('click', onClick)
+	appCategoryListEl.appendChild(filterButtonEl)
 }
 appFilterCSS += '.app-list.filter-onlineonly .app-list-item[onlineonly] { display: none; }\n'
 appFilterCSS += '.app-list.filter-notinstallable .app-list-item[notinstallable] { display: none; }\n'
@@ -316,17 +344,9 @@ appFilterStyle.innerHTML += appFilterCSS
 document.head.appendChild(appFilterStyle)
 
 // Attribute: onlineonly notinstallable externallink
-function onFilterAttributeClick(appAttribute, e){
-	const appListClassList = document.querySelector('.app-list').classList
-	appListClassList.toggle('filter-' + appAttribute)
-	if (appListClassList.contains('filter-' + appAttribute)) {
-		e.target.setAttribute('checked', true)
-	} else {
-		e.target.removeAttribute('checked')
-	}
-}
 function bindFilterAttribute(appAttribute) {
-	const onClick = onFilterAttributeClick.bind(null, appAttribute)
+	const filterAttributeClass = 'filter-' + appAttribute
+	const onClick = onFilterButtonClick.bind(null, filterAttributeClass)
 	document.querySelector('.app-list-filter-button.filter-' + appAttribute).addEventListener('click', onClick)
 }
 bindFilterAttribute('notinstallable')
@@ -338,8 +358,8 @@ bindFilterAttribute('externallink')
 function main() {
 	let appListEl = document.querySelector('ul.app-list')
 	appDataList.forEach(function(app){
-		let appListItemHtmlStr = templateReplace(appListItemTemplate, app)
-		let appListItemEl = createEl(appListItemHtmlStr, app)
+		const appListItemHtmlStr = templateReplace(appListItemTemplate, app)
+		const appListItemEl = createEl(appListItemHtmlStr)
 		appListItemEl.setAttribute('category', getAppCategorySlug(app.category))
 		let appTitleEl = appListItemEl.querySelector('.app-category')
 		if (app.installable) {

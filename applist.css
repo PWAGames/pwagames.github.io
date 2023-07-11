@@ -23,6 +23,16 @@ button.app-list-filter-button[checked] {
 button.app-list-filter-button[checked]:hover {
 	background-color: rgba(0,0,192,0.05);
 }
+.app-category-list {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 0.5em;
+	column-gap: 0.5em;
+	padding-left: 0;
+	margin-top: 0.2em;
+	margin-bottom: 0.5em;
+}
+
 
 .app-list {
 	list-style: none;
