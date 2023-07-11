@@ -232,6 +232,18 @@ let appDataList = [
 		installable: true,
 		offline: false,
 	},
+	{
+		slug: 'norman-the-necromancer',
+		title: 'Norman the Necromancer',
+		category: 'Puzzle',
+		iconSubPath: '__small.jpg',
+		sourceUrl: 'https://js13kgames.com/entries/norman-the-necromancer',
+		developer: 'Dan Prince',
+		developerUrl: 'https://github.com/danprince',
+		playUrl: null,
+		installable: false,
+		offline: false,
+	},
 
 
 	// https://offline-dino-game.firebaseapp.com/ (Broken, needs HIDDEN_CLASS='hidden')
