@@ -3,6 +3,9 @@
 }
 body {
 	font-family: sans-serif;
+	--btnPadding: 8px;
+	--appPadding: 8px;
+	--appIconSize: 128px;
 }
 
 section + section {
@@ -12,8 +15,8 @@ section + section {
 button.app-list-filter-button {
 	box-sizing: border-box;
 	background-color: rgba(0,0,0,0.1);
-	border-radius: 8px;
-	padding: 8px;
+	border-radius: var(--btnPadding);
+	padding: var(--btnPadding);
 	border: 2px rgba(0,0,192,0.0) solid;
 	transition: background-color 400ms, border-color 400ms;
 }
@@ -50,12 +53,12 @@ button.app-list-filter-button[checked]:hover {
 	display: inline-block;
 }
 .app-list-item a {
-	width: 144px;
+	width: calc(var(--appIconSize) + var(--appPadding) * 2);
 	display: inline-block;
 	text-decoration: none;
 	color: #000000;
-	border-radius: 8px;
-	padding: 8px;
+	border-radius: var(--appPadding);
+	padding: var(--appPadding);
 }
 .app-list-item a:hover {
 	background-color: rgba(0,0,0,0.05);
@@ -67,8 +70,8 @@ button.app-list-filter-button[checked]:hover {
 	overflow: hidden;
 }
 .app-list-item .app-icon {
-	width: 128px;
-	height: 128px;
+	width: var(--appIconSize);
+	height: var(--appIconSize);
 	background-size: contain;
 	border-radius: 20%;
 }
@@ -98,8 +101,8 @@ button.app-list-filter-button[checked]:hover {
 .buttongroup input[type="search"] {
 	margin: 0;
 	border: 2px solid rgba(0,0,0,0.1);
-	padding: 8px;
-	border-radius: 8px;
+	padding: var(--btnPadding);
+	border-radius: var(--btnPadding);
 	flex: 1;
 }
 .buttongroup input[type="search"]:not(:last-child) {
