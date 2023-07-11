@@ -36,7 +36,7 @@ const appListItemTemplate = `
 	</a>
 </li>`
 const appCategoryFilterButtonTemplate = `
-<button class="app-list-filter-button filter-{{slug}}">
+<button class="app-list-filter-button" filter-category="{{slug}}">
 	<img class="icon notinstallable" src="{{iconUrl}}"> {{title}}
 </button>`
 
@@ -307,22 +307,28 @@ appDataList.sort((a,b) => a.sortWeight - b.sortWeight)
 
 function filterButtonToggle(filterButton, attrName, attrValue) {
 	const appListEl = document.querySelector('.app-list')
+	const newValue = ('' + attrValue)
 	if (appListEl.hasAttribute(attrName)) {
 		const oldValue = appListEl.getAttribute(attrName)
-		if (oldValue == ('' + attrValue)) {
+		if (oldValue == newValue) {
 			// Uncheck
 			appListEl.removeAttribute(attrName)
 			filterButton.removeAttribute('checked')
 		} else {
 			// Change Value
-			// oldFilterButton.removeAttribute('checked') TODO
-			appListEl.setAttribute(attrName, attrValue)
-			filterButton.setAttribute('checked', true)
+			if (attrName == 'filter-category') {
+				const oldFilterButton = document.querySelector('.app-list-filter-button[filter-category][checked]')
+				if (oldFilterButton) {
+					oldFilterButton.removeAttribute('checked')
+				}
+			}
+			appListEl.setAttribute(attrName, newValue)
+			filterButton.setAttribute('checked', '')
 		}
 	} else {
 		// Check
-		appListEl.setAttribute(attrName, attrValue)
-		filterButton.setAttribute('checked', true)
+		appListEl.setAttribute(attrName, newValue)
+		filterButton.setAttribute('checked', '')
 	}
 }
 function onFilterButtonClick(attrName, attrValue, e) {
