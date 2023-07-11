@@ -400,7 +400,6 @@ function main() {
 			const notInstallableEl = document.createElement('img')
 			notInstallableEl.setAttribute('src', 'icons/uninstallable.svg')
 			notInstallableEl.classList.add('icon', 'notinstallable')
-			notInstallableEl.textContent = '💾'
 			appTitleEl.appendChild(notInstallableEl)
 			appListItemEl.setAttribute('notinstallable', '')
 		}
