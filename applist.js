@@ -350,6 +350,10 @@ for (const appCategory of gameAppCategories) {
 	const filterButtonEl = createEl(filterButtonHtmlStr)
 	const onClick = onFilterButtonClick.bind(null, 'filter-category', appCategorySlug)
 	filterButtonEl.addEventListener('click', onClick)
+	const categoryApps = appDataList.filter(function(app){ return app.category == appCategory })
+	if (categoryApps.length == 0) {
+		filterButtonEl.setAttribute('disabled', '')
+	}
 	appCategoryListEl.appendChild(filterButtonEl)
 }
 appFilterCSS += '.app-list.filter-onlineonly .app-list-item[onlineonly] { display: none; }\n'
