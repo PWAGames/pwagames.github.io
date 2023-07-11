@@ -363,6 +363,11 @@ appFilterCSS += '.app-list[filter-externallink] .app-list-item[externallink] { d
 appFilterStyle.innerHTML += appFilterCSS
 document.head.appendChild(appFilterStyle)
 
+const toggleCategorySection = document.querySelector('.toggle-app-category-filter-section')
+toggleCategorySection.addEventListener('click', function(e){
+	document.querySelector('.app-category-filter-section').classList.toggle('hidden')
+})
+
 // Attribute: onlineonly notinstallable externallink
 function bindFilterAttribute(appAttribute) {
 	const filterAttrName = 'filter-' + appAttribute

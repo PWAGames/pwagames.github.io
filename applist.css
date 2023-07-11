@@ -86,4 +86,24 @@ button.app-list-filter-button[checked]:hover {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-
+.hidden {
+	display: none;
+}
+.buttongroup {
+	display: flex;
+}
+.buttongroup input[type="search"] {
+	margin: 0;
+	border: 2px solid rgba(0,0,0,0.1);
+	padding: 8px;
+	border-radius: 8px;
+	flex: 1;
+}
+.buttongroup input[type="search"]:not(:last-child) {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.buttongroup input[type="search"] + button {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
