@@ -132,28 +132,27 @@ for (const appCategory of gameAppCategories) {
 	}
 	appCategoryListEl.appendChild(filterButtonEl)
 }
-appFilterCSS += '.app-list[filter-onlineonly] .app-list-item[onlineonly] { display: none; }\n'
-appFilterCSS += '.app-list[filter-notinstallable] .app-list-item[notinstallable] { display: none; }\n'
-appFilterCSS += '.app-list[filter-externallink] .app-list-item[externallink] { display: none; }\n'
-
-appFilterStyle.innerHTML += appFilterCSS
-document.head.appendChild(appFilterStyle)
 
 const toggleCategorySection = document.querySelector('.toggle-app-category-filter-section')
 toggleCategorySection.addEventListener('click', function(e){
 	document.querySelector('.app-category-filter-section').classList.toggle('hidden')
 })
 
-// Attribute: onlineonly notinstallable externallink
-function bindFilterAttribute(appAttribute) {
-	const filterAttrName = 'filter-' + appAttribute
+// Properties: onlineonly notinstallable lameapp externallink
+function setupFilterProperty(propName) {
+	const filterAttrName = 'filter-' + propName
 	const filterButtonEl = document.querySelector('.app-list-filter-button.' + filterAttrName)
 	const onClick = onFilterButtonClick.bind(null, filterAttrName, '')
 	filterButtonEl.addEventListener('click', onClick)
+	appFilterCSS += '.app-list[filter-' + propName + '] .app-list-item[' + propName + '] { display: none; }\n'
 }
-bindFilterAttribute('notinstallable')
-bindFilterAttribute('onlineonly')
-bindFilterAttribute('externallink')
+setupFilterProperty('notinstallable')
+setupFilterProperty('onlineonly')
+setupFilterProperty('externallink')
+setupFilterProperty('lameapp')
+
+appFilterStyle.innerHTML += appFilterCSS
+document.head.appendChild(appFilterStyle)
 
 
 //--- Main
@@ -178,6 +177,13 @@ function main() {
 			notInstallableEl.classList.add('icon', 'notinstallable')
 			appTitleEl.appendChild(notInstallableEl)
 			appListItemEl.setAttribute('notinstallable', '')
+		}
+		if (app.lame) {
+			const lameAppEl = document.createElement('span')
+			lameAppEl.classList.add('icon', 'lameapp')
+			lameAppEl.textContent = '😐'
+			appTitleEl.appendChild(lameAppEl)
+			appListItemEl.setAttribute('lameapp', '')
 		}
 		if (app.playUrl) {
 			const externalLinkEl = document.createElement('img')

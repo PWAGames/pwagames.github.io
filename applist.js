@@ -71,6 +71,7 @@ let appDataList = [
 		playUrl: 'https://vcjhwebdev.github.io/sudoku/',
 		installable: true,
 		offline: true,
+		lame: true,
 	},
 	{
 		slug: 'sudoku-nytimes',
@@ -145,6 +146,7 @@ let appDataList = [
 		playUrl: 'https://tmaiadev-tictactoe.netlify.app/',
 		installable: true,
 		offline: true,
+		lame: true,
 	},
 	{
 		slug: 'snake-classic',
