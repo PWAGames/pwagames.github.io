@@ -220,6 +220,19 @@ let appDataList = [
 		offline: true,
 		installable: true,
 	},
+	{
+		slug: 'the-neatness',
+		title: 'The Neatness',
+		category: 'Puzzle',
+		iconSubPath: 'small.jpg',
+		sourceUrl: 'https://js13kgames.com/entries/the-neatness',
+		developer: 'Mark Vasilkov',
+		developerUrl: 'https://github.com/mvasilkov',
+		playUrl: 'https://js13kgames.com/games/the-neatness/index.html',
+		offline: false,
+		installable: true,
+	},
+
 
 	// https://offline-dino-game.firebaseapp.com/ (Broken, needs HIDDEN_CLASS='hidden')
 
