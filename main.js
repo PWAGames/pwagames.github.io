@@ -138,7 +138,7 @@ toggleCategorySection.addEventListener('click', function(e){
 	document.querySelector('.app-category-filter-section').classList.toggle('hidden')
 })
 
-// Properties: onlineonly notinstallable lameapp externallink
+// Properties: onlineonly notinstallable externallink
 function setupFilterProperty(propName) {
 	const filterAttrName = 'filter-' + propName
 	const filterButtonEl = document.querySelector('.app-list-filter-button.' + filterAttrName)
@@ -149,7 +149,6 @@ function setupFilterProperty(propName) {
 setupFilterProperty('notinstallable')
 setupFilterProperty('onlineonly')
 setupFilterProperty('externallink')
-setupFilterProperty('lameapp')
 
 appFilterStyle.innerHTML += appFilterCSS
 document.head.appendChild(appFilterStyle)
@@ -177,13 +176,6 @@ function main() {
 			notInstallableEl.classList.add('icon', 'notinstallable')
 			appTitleEl.appendChild(notInstallableEl)
 			appListItemEl.setAttribute('notinstallable', '')
-		}
-		if (app.lame) {
-			const lameAppEl = document.createElement('span')
-			lameAppEl.classList.add('icon', 'lameapp')
-			lameAppEl.textContent = '😐'
-			appTitleEl.appendChild(lameAppEl)
-			appListItemEl.setAttribute('lameapp', '')
 		}
 		if (app.playUrl) {
 			const externalLinkEl = document.createElement('img')
