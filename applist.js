@@ -209,7 +209,7 @@ let appDataList = [
 	{
 		slug: 'norman-the-necromancer',
 		title: 'Norman the Necromancer',
-		category: 'Puzzle',
+		category: 'Action',
 		iconSubPath: 'icon.jpg',
 		sourceUrl: 'https://js13kgames.com/entries/norman-the-necromancer',
 		developer: 'Dan Prince',
