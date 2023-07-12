@@ -26,7 +26,7 @@ function createEl(htmlStr) {
 
 //--- Templates
 const appListItemTemplate = `
-<li class="app-list-item">
+<li class="app-list-item" app-id="{{slug}}">
 	<a href="{{url}}">
 		<img src="{{iconPath}}" class="app-icon">
 		<div class="app-info">
@@ -73,6 +73,10 @@ appDataList.forEach(function(app){
 		app.url = '/app/' + app.slug + '/'
 	}
 	app.iconPath = '/app/' + app.slug + '/' + app.iconSubPath
+})
+let appDataMap = {}
+appDataList.forEach(function(app){
+	appDataMap[app.slug] = app
 })
 
 // Randomize
@@ -152,6 +156,48 @@ setupFilterProperty('externallink')
 
 appFilterStyle.innerHTML += appFilterCSS
 document.head.appendChild(appFilterStyle)
+
+function clearQueryFilter() {
+	document.querySelectorAll('.app-list-item').forEach(function(appListItemEl){
+		appListItemEl.classList.remove('hidden')
+	})
+}
+function filterAppListByQuery(query) {
+	console.log('filterAppListByQuery', query)
+	if (query.trim() == '') {
+		clearQueryFilter()
+		return
+	}
+
+	const queryTokens = query.trim().toLowerCase().split(' ')
+	const numTokens = queryTokens.length
+
+	appDataList.forEach(function(app){
+		let tokensMatched = 0
+		for (const token of queryTokens) {
+			if (
+				(app.title && app.title.toLowerCase().includes(token))
+				|| (app.developer && app.developer.toLowerCase().includes(token))
+			) {
+				tokensMatched += 1
+			}
+		}
+		const appMatched = tokensMatched == numTokens
+		console.log(app.title, app.developer, appMatched)
+		const appListItemEl = document.querySelector('.app-list-item[app-id="' + app.slug + '"]')
+		if (appMatched) {
+			appListItemEl.classList.remove('hidden')
+		} else {
+			appListItemEl.classList.add('hidden')
+		}
+	})
+}
+const appListQueryEl = document.querySelector('.app-list-filter-query')
+function updateQueryFilter() {
+	filterAppListByQuery(appListQueryEl.value)
+}
+appListQueryEl.addEventListener('change', updateQueryFilter)
+appListQueryEl.addEventListener('keyup', updateQueryFilter) // Small list doesn't need debounce
 
 
 //--- Main

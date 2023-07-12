@@ -52,6 +52,9 @@ button.app-list-filter-button[checked]:hover {
 .app-list li.app-list-item {
 	display: inline-block;
 }
+.app-list li.app-list-item.hidden {
+	display: none;
+}
 .app-list-item a {
 	width: calc(var(--appIconSize) + var(--appPadding) * 2);
 	display: inline-block;
