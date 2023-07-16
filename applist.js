@@ -210,7 +210,7 @@ let appDataList = [
 		slug: 'norman-the-necromancer',
 		title: 'Norman the Necromancer',
 		category: 'Action',
-		iconSubPath: 'icon.jpg',
+		iconSubPath: 'icon.png',
 		sourceUrl: 'https://js13kgames.com/entries/norman-the-necromancer',
 		developer: 'Dan Prince',
 		developerUrl: 'https://github.com/danprince',
