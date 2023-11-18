@@ -219,6 +219,18 @@ let appDataList = [
 		offline: true,
 	},
 	{
+		slug: 'sweepstacks',
+		title: 'Sweep Stacks',
+		category: 'Puzzle',
+		iconSubPath: 'icon-192.png',
+		sourceUrl: 'https://github.com/excaliburjs/sweep',
+		developer: 'excaliburjs',
+		developerUrl: 'https://github.com/excaliburjs/sweep',
+		playUrl: 'https://excaliburjs.com/sweep/',
+		installable: true,
+		offline: false,
+	},
+	{
 		slug: 'microsoft-jewel-2',
 		title: 'Microsoft Jewel 2',
 		category: 'Puzzle',
