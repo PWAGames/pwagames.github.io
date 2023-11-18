@@ -231,6 +231,18 @@ let appDataList = [
 		offline: false,
 	},
 	{
+		slug: 'mergetin',
+		title: 'Mergetin',
+		category: 'Puzzle',
+		iconSubPath: 'icon-192.webp',
+		sourceUrl: null,
+		developer: 'Nebula Bytes',
+		developerUrl: 'https://nebulabytes.com/',
+		playUrl: 'https://mergetin.com/',
+		installable: false,
+		offline: false,
+	},
+	{
 		slug: 'microsoft-jewel-2',
 		title: 'Microsoft Jewel 2',
 		category: 'Puzzle',
